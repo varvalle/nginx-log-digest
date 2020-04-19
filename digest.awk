@@ -32,14 +32,16 @@ END{
 	print "\n-------------------------------\n Daily Unique IPs: \n"
 	print "Date       | Unique IPs connected"
 	#print daily unique ips
-	for(isodate in count_daily_unique_ip){
-		printf("%-10s | %d", isodate, count_daily_unique_ip[isodate])
+	asorti(count_daily_unique_ip, sorted_dates)
+	for(i in sorted_dates){
+		printf("%-10s | %d\n", sorted_dates[i], count_daily_unique_ip[sorted_dates[i]])
 	}
 	print "\n-------------------------------\n Monthly Unique IPs:"
 	#count up unique ips and sort by month
+	asorti(count_monthly_unique_ip,sorted_months)
 	print "Date       | Unique IPs connected"
-	for(isomonth in count_monthly_unique_ip){
-		printf("%-10s | %d\n", isomonth, count_monthly_unique_ip[isomonth])
+	for(m in sorted_months){
+		printf("%-10s | %d\n", sorted_months[m], count_monthly_unique_ip[sorted_months[m]])
 	}
 }
 
